@@ -10,18 +10,14 @@ form.addEventListener("submit", async (event) => {
   // Stop the browser from refreshing the page
   event.preventDefault();
 
-
   const url = input.value.trim();
 
-
-  if (!url) {
+  if(!url) {
     showStatus("Please enter a URL.", "error");
     return;
   }
 
-
   // Show loading state
-
   button.disabled = true;
 
   button.textContent = "Loading...";
@@ -31,26 +27,14 @@ form.addEventListener("submit", async (event) => {
     "loading"
   );
 
-
   try {
-
     const response = await fetch("/api/preview", {
-
       method: "POST",
-
-      headers: {
-        "Content-Type": "application/json"
-      },
-
-      body: JSON.stringify({
-        url: url
-      })
-
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({url: url})
     });
 
-
     const data = await response.json();
-
 
     if (!response.ok) {
       throw new Error(
@@ -58,23 +42,14 @@ form.addEventListener("submit", async (event) => {
       );
     }
 
-
     console.log("Response from backend:", data);
-
 
     renderPreview(data.data);
 
-
-    showStatus(
-      "Preview generated successfully.",
-      "success"
-    );
-
+    showStatus("Preview generated successfully.","success");
 
   } catch (error) {
-
     console.error(error);
-
     showStatus(
       error.message,
       "error"
@@ -82,27 +57,18 @@ form.addEventListener("submit", async (event) => {
 
     renderError(error.message);
 
-
   } finally {
-
     button.disabled = false;
-
     button.textContent = "Generate";
-
   }
-
 });
 
 function showStatus(message, type) {
-
   status.textContent = message;
-
   status.className = `status ${type}`;
-
 }
 
 function renderPreview(data) {
-
   const image = data.image
     ? `
       <img
@@ -117,27 +83,19 @@ function renderPreview(data) {
       </div>
     `;
 
-
   result.innerHTML = `
-
     <article class="preview-card">
-
       ${image}
-
       <div class="preview-content">
-
         <p class="preview-domain">
           ${data.domain}
         </p>
-
         <h2>
           ${data.title}
         </h2>
-
         <p class="preview-description">
           ${data.description}
         </p>
-
         <a
           class="preview-link"
           href="${data.url}"
@@ -146,35 +104,23 @@ function renderPreview(data) {
         >
           Visit website ↗
         </a>
-
       </div>
-
     </article>
-
   `;
-
 }
 
 function renderError(message) {
-
   result.innerHTML = `
-
     <div class="error-state">
-
       <div class="error-icon">
         !
       </div>
-
       <h2>
         Couldn't generate preview
       </h2>
-
       <p>
         ${message}
       </p>
-
     </div>
-
   `;
-
 }
