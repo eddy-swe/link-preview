@@ -1,0 +1,13 @@
+{
+  "name": "link-preview-generator",
+  "version": "1.0.0",
+  "description": "A full-stack link preview generator for learning API integration",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

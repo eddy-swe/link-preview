@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Generate beautiful link previews from URLs."
+  >
+
+  <title>Link Preview Generator</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <main class="app">
+
+    <!-- Header -->
+    <section class="hero">
+
+      <p class="eyebrow">
+        API INTEGRATION PROJECT
+      </p>
+
+      <h1>
+        Link Preview
+        <span>Generator</span>
+      </h1>
+
+      <p class="subtitle">
+        Paste a URL and turn it into a beautiful preview card.
+      </p>
+
+    </section>
+
+
+    <!-- URL Form -->
+    <section class="generator">
+
+      <form id="preview-form">
+
+        <label for="url-input">
+          Website URL
+        </label>
+
+        <div class="input-row">
+
+          <input
+            id="url-input"
+            type="url"
+            placeholder="https://example.com"
+            autocomplete="url"
+            required
+          >
+
+          <button
+            id="generate-button"
+            type="submit"
+          >
+            Generate
+          </button>
+
+        </div>
+
+      </form>
+
+      <p
+        id="status"
+        class="status"
+      ></p>
+
+    </section>
+
+
+    <!-- Preview Result -->
+    <section
+      id="result"
+      class="result"
+    >
+
+      <div class="empty-state">
+
+        <div class="empty-icon">
+          ↗
+        </div>
+
+        <h2>
+          Your preview will appear here
+        </h2>
+
+        <p>
+          Enter a URL above to generate a preview.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="/js/app.js"></script>
+
+</body>
+</html>
