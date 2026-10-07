@@ -1,11 +1,7 @@
 const form = document.querySelector("#preview-form");
-
 const input = document.querySelector("#url-input");
-
 const button = document.querySelector("#generate-button");
-
 const status = document.querySelector("#status");
-
 const result = document.querySelector("#result");
 
 
@@ -97,7 +93,6 @@ form.addEventListener("submit", async (event) => {
 
 });
 
-
 function showStatus(message, type) {
 
   status.textContent = message;
@@ -105,7 +100,6 @@ function showStatus(message, type) {
   status.className = `status ${type}`;
 
 }
-
 
 function renderPreview(data) {
 
@@ -160,7 +154,6 @@ function renderPreview(data) {
   `;
 
 }
-
 
 function renderError(message) {
 
